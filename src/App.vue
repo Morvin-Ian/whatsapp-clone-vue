@@ -22,7 +22,8 @@
       />
       <MessageList/>
       <MessageInput
-        :viewMessageFile="viewMessageFile"
+        :viewFileMessage="viewFileMessage"
+        @view-file-message="setFileMessage"
       />
     </div>
   </div>
@@ -43,7 +44,7 @@
   const viewProfile = ref(false);
   const viewChatDrop = ref(false)
   const viewMessageDrop = ref(false)
-  const viewMessageFile = ref(false)
+  const viewFileMessage = ref(false)
 
 
   const setProfile = (profileState) => {
@@ -59,7 +60,7 @@
   }  
 
   const setFileMessage = (messageFileState) => {
-    viewMessageFile.value = messageFileState
+    viewFileMessage.value = messageFileState
   }  
 
 

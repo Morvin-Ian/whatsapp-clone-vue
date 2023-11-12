@@ -4,8 +4,8 @@
             <font-awesome-icon :icon="['fas', 'face-smile']" />
         </div>
         <div class="files">
-            <FileDropDown/>
-            <font-awesome-icon class="icon" :icon="['fas', 'plus']" />
+            <FileDropDown :class="viewFileMessage ? 'drop': 'none'"/>
+            <font-awesome-icon @click="setFileMessage" class="icon" :icon="['fas', 'plus']" />
         </div>
         
         <div class="text-message">
@@ -20,7 +20,17 @@
 
 <script setup>
     import FileDropDown from "@/components/dropdowns/FileMessageDropDown.vue"
+    import {defineEmits, defineProps} from "vue"
 
+    const emits = defineEmits(['view-file-message'])
+
+    const props = defineProps({
+        viewFileMessage:{
+            type:Boolean,
+            required:true
+        }
+
+    })
 
     const setFileMessage = () => {
         if(!props.viewFileMessage){
@@ -65,5 +75,13 @@
 
     .voice-note{
         margin-left:25px;
+    }
+
+    .drop{
+        display: block;
+    }
+
+    .none{
+        display: none;
     }
 </style>
