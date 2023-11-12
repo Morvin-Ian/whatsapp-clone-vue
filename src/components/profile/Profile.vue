@@ -12,7 +12,7 @@
         <form class="edit-profile">
             <div class="profile-image">
                 <input type="file" accept="image/*" id="profile" />
-                <label  for="profile">
+                <label for="profile">
                     <img :src="profilePicture" />
                 </label>
             </div>
@@ -32,8 +32,6 @@
                 <button>Edit</button>
             </div>
 
-
-
         </form>
 
     </div>
@@ -48,9 +46,9 @@ const about = ref('');
 const emits = defineEmits(['view-profile'])
 
 const props = defineProps({
-    viewProfile:{
-        type:Boolean,
-        required:true
+    viewProfile: {
+        type: Boolean,
+        required: true
     }
 })
 
@@ -68,13 +66,14 @@ const hideProfile = () => {
     background: #202C33;
     width: 25%;
     height: 105vh;
-    justify-content:center;
+    justify-content: center;
     visibility: visible;
     transition: opacity 0.5s ease, max-height 0.7s ease, visibility 0.5s ease;
 }
 
 
 .profile-hidden {
+
     opacity: 0;
     max-height: 0;
     visibility: hidden;
@@ -115,7 +114,7 @@ const hideProfile = () => {
     border-radius: 50%;
     width: 255px;
     height: 255px;
-    
+
 }
 
 #profile {
@@ -123,31 +122,33 @@ const hideProfile = () => {
 }
 
 
-.input-label{
+.input-label {
     color: #075E54;
 }
 
-.username,.about, .submit {
-    padding:5px 20px ;
+.username,
+.about,
+.submit {
+    padding: 5px 20px;
 }
 
-.submit button{
-    width:97%;
-    cursor:pointer;
+.submit button {
+    width: 97%;
+    cursor: pointer;
     background-color: #075E54;
     color: #b6b6b6;
-    font-weight:bolder;
-    border:none;
-    padding:10px;
+    font-weight: bolder;
+    border: none;
+    padding: 10px;
 
 }
 
-.username-input,.about-input {
+.username-input,
+.about-input {
     background-color: #141c20;
     color: #b6b6b6;
-    border:none;
-    padding:10px;
-    margin-top:10px;
-    width:90%;
-}
-</style>
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    width: 90%;
+}</style>

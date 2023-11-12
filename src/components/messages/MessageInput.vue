@@ -4,8 +4,14 @@
             <font-awesome-icon :icon="['fas', 'face-smile']" />
         </div>
         <div class="files">
-            <FileDropDown :class="viewFileMessage ? 'drop': 'none'"/>
-            <font-awesome-icon @click="setFileMessage" class="icon" :icon="['fas', 'plus']" />
+            <FileDropDown 
+                :class="viewFileMessage ? 'drop': 'none'"
+            />
+            <font-awesome-icon 
+                @click="setFileMessage" 
+                :class="!viewFileMessage ? 'icon': 'icon-ratate'" 
+                icon="plus" 
+            />
         </div>
         
         <div class="text-message">
@@ -83,5 +89,17 @@
 
     .none{
         display: none;
+    }
+
+    .icon{
+        transition: transform 0.7s ease;
+        padding: 5px;
+    }
+    .icon-ratate{
+        transition: transform 0.7s ease;
+        transform: rotate(45deg);
+        border-radius: 50%;
+        padding: 5px;
+        background-color: #141c20;
     }
 </style>
