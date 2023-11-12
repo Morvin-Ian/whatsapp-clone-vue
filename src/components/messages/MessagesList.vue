@@ -9,12 +9,14 @@
 
 <script setup>
     import Message from "@/components/messages/Message.vue"
-    const messages = 20;
+    
+    const messages = 2;
 </script>
 
 <style scoped>
     .messages-container{
-        height: 82vh;
+        height: 80vh;
+        margin-bottom: 5px;
         overflow: scroll;
         background: url('../../assets/bg.jpg') ;
     }

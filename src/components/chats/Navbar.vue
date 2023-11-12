@@ -1,7 +1,7 @@
 <template>
     <div class="nav-container">
         <div class="user-profile">
-            <img :src="profilePicture" alt="profile">
+            <img @click="setProfile" :src="profilePicture" alt="profile">
         </div>
 
         <div class="nav-btns">
@@ -18,9 +18,12 @@
             </div>
 
             <div class="more">
-                <font-awesome-icon class="icon" :icon="['fas', 'ellipsis-vertical']" />
+                <font-awesome-icon @click="setDropDown" class="icon" id="more" :icon="['fas', 'ellipsis-vertical']" />
             </div>
+        </div>
 
+        <div>
+            <DropDown :class="viewChatDrop ? 'drop':'none'" />
         </div>
 
     </div>
@@ -28,6 +31,30 @@
 
 <script setup>
     import profilePicture from "@/assets/octo.jpg"
+    import DropDown from "@/components/dropdowns/ChatNavDropDown.vue"
+    import {defineProps, defineEmits} from "vue"
+
+    const emits = defineEmits(['view-profile', 'view-chat-drop'])
+
+
+    const props = defineProps({
+        viewChatDrop:{
+            type:Boolean,
+            required:true
+        }
+    })
+
+    const setProfile = () => {
+        emits('view-profile', true)
+    }
+
+    const setDropDown = () => {
+        if(!props.viewChatDrop){
+            emits('view-chat-drop', true)
+        }else{
+            emits('view-chat-drop', false)   
+        }
+    }
 
 </script>
 
@@ -36,13 +63,13 @@
     display: flex;
     padding: 5px;
     border-radius: 4px;
-    background-color: #141c20;;
+    background-color: #141c20;
 
 }
 
 .user-profile img {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
@@ -64,8 +91,30 @@
     margin-left: 15%;
 }
 
+.nav-btns .icon{
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.5s ease;
+}
+
+#more{
+    border-radius: 0%;
+}
 .nav-btns div .icon{
     font-size: large;
     cursor: pointer;
 }
+
+.nav-btns .icon:hover{
+    background-color: rgba(65, 65, 65, 0.749);
+
+}
+
+.drop{
+        display: block;
+
+    }
+.none{
+        display: none;
+    }
 </style>

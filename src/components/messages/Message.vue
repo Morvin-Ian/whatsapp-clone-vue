@@ -7,19 +7,36 @@
                 </div>
 
                 <div class="text">
-                    <span>Good morning champ</span> <br>
+                    <span>Good morning champ</span> 
+                    <font-awesome-icon class="icon" :icon="['fas', 'chevron-down']" />
+
+                    <br>
+
                     <small class="time">2:30 PM</small>
                 </div>
 
             </div>
         </div>
+    </div>
 
+    <div :class="!received ? 'message-container-received' : 'message-container-sent'">
+        <div class="message">
+            <div class="message-body">
+                <div class="text">
+                    <span>Good morning champ</span> 
+                    <font-awesome-icon class="icon" :icon="['fas', 'chevron-down']" />
+                    <br>
+                    <small class="time">2:30 PM</small>
+                </div>
+
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
     import file from "@/assets/octo.jpg"
-    const received = false;
+    const received = true;
     const fileExists = true
 </script>
 
@@ -75,5 +92,15 @@
 
 }
 
+.icon{
+    cursor: pointer;
+    float: right;
+    visibility: hidden;
+}
+
+.message-container-sent .message:hover .icon,
+.message-container-received .message:hover .icon{
+    visibility: visible;
+} 
 
 </style>

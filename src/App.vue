@@ -1,28 +1,66 @@
 <template>
   <div class="container">
     <div class="chats">
-      <Navbar />
+      <Navbar  
+        @view-profile="setProfile" 
+        @view-chat-drop="setChatDrop" 
+        :viewChatDrop="viewChatDrop"
+      />
       <Search/>
-      <ChatList/>
+      <ChatList 
+        @view-chat-drop="setChatDrop" 
+      />
+      <Profile :viewProfile="viewProfile" @view-profile="setProfile" />
     </div>
 
     <div class="messages">
-      <MessageNav/>
+      <MessageNav 
+        @view-profile="setProfile"
+        @view-message-drop ="setMessageDrop"
+        :viewProfile="viewProfile"  
+        :viewMessageDrop="viewMessageDrop"
+      />
       <MessageList/>
-      <MessageInput/>
+      <MessageInput
+        :viewMessageFile="viewMessageFile"
+      />
     </div>
   </div>
 </template>
 
 
 <script setup>
+  import {ref} from "vue"
   import Navbar from "@/components/chats/Navbar.vue"
   import Search from "@/components/chats/Search.vue"
   import ChatList from "@/components/chats/ChatsList.vue"
   import MessageNav from "@/components/messages/Navbar.vue"
   import MessageList from "@/components/messages/MessagesList.vue"
   import MessageInput from "@/components/messages/MessageInput.vue"
+  import Profile from "@/components/profile/Profile.vue"
 
+
+  const viewProfile = ref(false);
+  const viewChatDrop = ref(false)
+  const viewMessageDrop = ref(false)
+  const viewMessageFile = ref(false)
+
+
+  const setProfile = (profileState) => {
+    viewProfile.value = profileState
+  }
+
+  const setChatDrop = (chatDropState) => {
+    viewChatDrop.value = chatDropState
+  }  
+
+  const setMessageDrop = (messageDropState) => {
+    viewMessageDrop.value = messageDropState
+  }  
+
+  const setFileMessage = (messageFileState) => {
+    viewMessageFile.value = messageFileState
+  }  
 
 
 </script>
@@ -33,6 +71,8 @@ body {
   margin: 0;
   background: #202C33;
   font-family: Calibri, 'Trebuchet MS', sans-serif;
+  overflow-y: hidden;
+
 }
 
 .container{

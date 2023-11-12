@@ -1,7 +1,11 @@
 <template>
     <div class="nav-container">
         <div class="user-profile">
-            <img :src="profilePicture" alt="profile">
+            <img @click="setProfile" :src="profilePicture" alt="profile">
+            <div class="name">
+                <span >Evans Nderitu</span> <br>
+                <small class="action">typing ...</small>
+            </div>
         </div>
 
         <div class="nav-btns">
@@ -19,16 +23,55 @@
             </div>
 
             <div class="more">
-                <font-awesome-icon class="icon" :icon="['fas', 'ellipsis-vertical']" />
+                <font-awesome-icon @click="setDropDown" class="icon" id="more" :icon="['fas', 'ellipsis-vertical']" />
             </div>
 
         </div>
 
+        <div>
+            <DropDown :class="viewMessageDrop ? 'drop':'none'" />
+        </div>
+
     </div>
-</template>
+</template>viewMessageDrop
 
 <script setup>
     import profilePicture from "@/assets/octo.jpg"
+    import DropDown from "@/components/dropdowns/MessageNavDropDown.vue"
+
+    import {defineEmits, defineProps} from "vue"
+
+    const emits = defineEmits(['view-profile', 'view-message-drop'])
+
+    const props = defineProps({
+        viewProfile:{
+            type:Boolean,
+            required:true
+        },
+        viewMessageDrop:{
+            type:Boolean,
+            required:true
+        }
+
+    })
+
+
+    const setProfile = () => {
+        if (!props.viewProfile){
+            emits('view-profile', true)
+        }
+        else{
+            emits('view-profile', false)
+        }
+    }
+
+    const setDropDown = () => {
+        if(!props.viewMessageDrop){
+            emits('view-message-drop', true)
+        }else{
+            emits('view-message-drop', false)   
+        }
+    }
 
 </script>
 
@@ -40,9 +83,22 @@
 
 }
 
+.user-profile{
+    display: flex;
+    color: #fff;
+}
+
+.user-profile .name{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.user-profile .action{
+    color: gray;
+}
 .user-profile img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
@@ -51,7 +107,7 @@
 }
 
 .nav-btns{
-    flex-basis: 90%;
+    flex-basis: 80%;
     display: flex;
     justify-content: flex-end;
     color: #b6b6b6;
@@ -67,5 +123,24 @@
 .nav-btns .icon{
     font-size: large;
     cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.5s ease;
+
 }
+
+#more{
+    border-radius: 0%;
+}
+.nav-btns .icon:hover{
+    background-color: rgba(65, 65, 65, 0.749);
+
+}
+
+.drop{
+        display: block;
+    }
+.none{
+        display: none;
+    }
 </style>

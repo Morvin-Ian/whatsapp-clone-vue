@@ -7,8 +7,8 @@
 </template>
 
 <script setup>
-    import Chat from "./Chat.vue"
-    const chats = 20;
+    import Chat from "@/components/chats/Chat.vue";
+    const chats = 10;
 
 </script>
 
@@ -18,4 +18,5 @@
         height: 85vh;
         overflow-y: scroll;       
     }
+
 </style>

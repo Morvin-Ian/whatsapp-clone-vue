@@ -12,18 +12,26 @@ import {
     faSquarePhone, 
     faSquarePlus, faUsers, faVideo,
     faMicrophone,
-    faFaceSmile
+    faFaceSmile,
+    faArrowLeft,
+    faFile,
+    faImages,
+    faCamera,
+    faUser,
+    faSquarePollVertical
 
 } from '@fortawesome/free-solid-svg-icons'
 
 
 library.add(
-    faUsers, faCircle,
+    faUsers, faCircle,faUser,
     faSquarePlus, faEllipsisVertical, faPlus,
     faSort, faMagnifyingGlass,
     faChevronDown, faVideo, 
     faSquarePhone, faMicrophone,
-    faFaceSmile            
+    faFaceSmile, faArrowLeft,
+    faFile, faImages, faCamera,
+    faSquarePollVertical         
 )
 
 

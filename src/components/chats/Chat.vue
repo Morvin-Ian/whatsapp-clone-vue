@@ -42,6 +42,7 @@
     }
     .chat-container .last-seen{
         color: #b6b6b6;
+        /* color: #25D366; */
 
     }
     .chat-profile{

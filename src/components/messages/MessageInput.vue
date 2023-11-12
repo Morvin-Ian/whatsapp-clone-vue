@@ -4,6 +4,7 @@
             <font-awesome-icon :icon="['fas', 'face-smile']" />
         </div>
         <div class="files">
+            <FileDropDown/>
             <font-awesome-icon class="icon" :icon="['fas', 'plus']" />
         </div>
         
@@ -18,6 +19,16 @@
 </template>
 
 <script setup>
+    import FileDropDown from "@/components/dropdowns/FileMessageDropDown.vue"
+
+
+    const setFileMessage = () => {
+        if(!props.viewFileMessage){
+            emits('view-file-message', true)
+        }else{
+            emits('view-file-message', false)   
+        }
+    }
 
     const handleSubmit = () => {
 
