@@ -1,7 +1,7 @@
 <template>
     <div class="nav-container">
         <div class="user-profile">
-            <img @click="setProfile" :src="profilePicture" alt="profile">
+            <img @click="setChatProfile" :src="profilePicture" alt="profile">
             <div class="name">
                 <span >Evans Nderitu</span> <br>
                 <small class="action">typing ...</small>
@@ -41,10 +41,10 @@
 
     import {defineEmits, defineProps} from "vue"
 
-    const emits = defineEmits(['view-profile', 'view-message-drop'])
+    const emits = defineEmits(['view-chat-profile', 'view-message-drop'])
 
     const props = defineProps({
-        viewProfile:{
+        viewChatProfile:{
             type:Boolean,
             required:true
         },
@@ -56,21 +56,12 @@
     })
 
 
-    const setProfile = () => {
-        if (!props.viewProfile){
-            emits('view-profile', true)
-        }
-        else{
-            emits('view-profile', false)
-        }
+    const setChatProfile = () => {
+        emits('view-chat-profile', !props.viewChatProfile)
     }
 
     const setDropDown = () => {
-        if(!props.viewMessageDrop){
-            emits('view-message-drop', true)
-        }else{
-            emits('view-message-drop', false)   
-        }
+        emits('view-message-drop', !props.viewMessageDrop) 
     }
 
 </script>

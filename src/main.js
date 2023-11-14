@@ -9,16 +9,13 @@ import {
     faChevronDown,
     faCircle, faEllipsisVertical, 
     faMagnifyingGlass, faPlus, faSort, 
-    faSquarePhone, 
-    faSquarePlus, faUsers, faVideo,
-    faMicrophone,
-    faFaceSmile,
-    faArrowLeft,
-    faFile,
-    faImages,
-    faCamera,
-    faUser,
-    faSquarePollVertical
+    faSquarePhone, faSquarePlus, faUsers, faVideo,
+    faMicrophone,faFaceSmile,faArrowLeft,
+    faFile,faImages,faCamera, faUser,
+    faSquarePollVertical,faCircleXmark,
+    faBell, faStar, faArrowRotateRight,
+    faLock,faTrash,faBan,
+    faThumbsDown
 
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -27,11 +24,12 @@ library.add(
     faUsers, faCircle,faUser,
     faSquarePlus, faEllipsisVertical, faPlus,
     faSort, faMagnifyingGlass,
-    faChevronDown, faVideo, 
+    faChevronDown, faVideo, faThumbsDown,
     faSquarePhone, faMicrophone,
-    faFaceSmile, faArrowLeft,
-    faFile, faImages, faCamera,
-    faSquarePollVertical         
+    faFaceSmile, faArrowLeft,faTrash,
+    faFile, faImages, faCamera,faBan,
+    faSquarePollVertical, faCircleXmark, faBell,
+    faStar, faArrowRotateRight, faLock
 )
 
 

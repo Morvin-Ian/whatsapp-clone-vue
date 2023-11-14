@@ -3,7 +3,7 @@
         <li>New group</li>
         <li>New community</li>
         <li>Starred messages</li>
-        <li>Clear chat</li>
+        <li>Clear chats</li>
         <li>Select chat</li>
         <li>Settings</li>
         <li>Log out</li>
@@ -18,9 +18,10 @@
     .drop-list{
         position: absolute;
         top:8%;
-        left:10%;
+        left:5%;
         background: #202C33;
-        padding:30px;
+        width: 15%;
+        padding: 5px 20px;
 
     }
 
@@ -29,6 +30,11 @@
         margin-top:10px;
         list-style: none;
         cursor:pointer;
+        padding: 5px;
 
+    }
+
+    .drop-list li:hover{
+        background-color: #0d161b;
     }
 </style>

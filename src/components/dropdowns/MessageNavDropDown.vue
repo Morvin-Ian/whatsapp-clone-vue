@@ -1,7 +1,7 @@
 <template>
     <ul class="drop-list">
         <li>Contact Info</li>
-        <li>Slect messages</li>
+        <li>Select messages</li>
         <li>Close chat</li>
         <li>Mute notification</li>
         <li>Dissapearing messages</li>
@@ -21,7 +21,8 @@
         top:8%;
         right:3%;
         background: #202C33;
-        padding:30px;
+        padding:5px;
+        width: 20%;
 
     }
 
@@ -35,6 +36,10 @@
         margin-top:10px;
         list-style: none;
         cursor:pointer;
+        padding:5px 20px;
 
+    }
+    .drop-list li:hover{
+        background-color: #0d161b;
     }
 </style>

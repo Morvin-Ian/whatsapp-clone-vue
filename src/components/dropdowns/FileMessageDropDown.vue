@@ -35,7 +35,6 @@
         left:30%;
         background: #202C33;
         padding:30px;
-
     }
 
     .drop-list-no{
@@ -45,9 +44,13 @@
 
     .drop-list li{
         color: #b6b6b6;
-        margin-top:15px;
         list-style: none;
         cursor:pointer;
+        padding: 10px;
+    }
+
+    .drop-list li:hover{
+        background-color: #111f27;
 
     }
 </style>

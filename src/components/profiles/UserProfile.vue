@@ -68,7 +68,7 @@ const hideProfile = () => {
     height: 105vh;
     justify-content: center;
     visibility: visible;
-    transition: opacity 0.5s ease, max-height 0.7s ease, visibility 0.5s ease;
+    transition: opacity 1s ease, max-height 1s ease, visibility 1s ease;
 }
 
 
@@ -151,4 +151,9 @@ const hideProfile = () => {
     padding: 10px;
     margin-top: 10px;
     width: 90%;
-}</style>
+}
+.about-input:focus{
+    border: none;
+}
+
+</style>

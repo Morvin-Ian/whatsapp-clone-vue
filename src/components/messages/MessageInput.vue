@@ -39,11 +39,7 @@
     })
 
     const setFileMessage = () => {
-        if(!props.viewFileMessage){
-            emits('view-file-message', true)
-        }else{
-            emits('view-file-message', false)   
-        }
+        emits('view-file-message', !props.viewFileMessage)
     }
 
     const handleSubmit = () => {

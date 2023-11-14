@@ -49,11 +49,7 @@
     }
 
     const setDropDown = () => {
-        if(!props.viewChatDrop){
-            emits('view-chat-drop', true)
-        }else{
-            emits('view-chat-drop', false)   
-        }
+        emits('view-chat-drop', !props.viewChatDrop)
     }
 
 </script>
