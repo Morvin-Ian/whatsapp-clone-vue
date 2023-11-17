@@ -12,6 +12,7 @@
         <div class="edit-profile">
             <div class="profile-image">
                 <img :src="profilePicture" />
+                <h2 style="text-align: center;">{{ activeChatStore.activeChat.username }}</h2>
             </div>
 
             <div class="about">
@@ -74,7 +75,12 @@
 import profilePicture from "@/assets/default.jpg"
 import { defineProps, defineEmits } from 'vue';
 
+import {useActiveChatStore} from "@/stores/activeChat.js"
+
+
 const emits = defineEmits(['view-chat-profile'])
+const activeChatStore = useActiveChatStore();
+
 
 const props = defineProps({
     viewChatProfile: {

@@ -1,11 +1,16 @@
 <template>
     <div @click="resetRefs" class="container">
       <div class="chats">
-        <ChatsContainer/>
+        <ChatsContainer @change-view="changeDefault"/>
       </div>
   
       <div :class="viewChatProfile ? 'messages-profile': 'messages'">
-        <MessagesContainer @view-chat-profile="changeView"/>
+        <div v-if="!isDefault">
+          <MessagesContainer  @view-chat-profile="changeView"/>
+        </div>
+         <div v-else>
+            <DefaultContainer />
+        </div>
       </div>
     </div>
   </template>
@@ -15,14 +20,18 @@
         import {ref} from 'vue'
         import ChatsContainer from "@/components/containers/ChatComponentsContainer.vue"
         import MessagesContainer from "@/components/containers/MessageComponentsContainer.vue"
+        import DefaultContainer from "@/components/containers/Default.vue"
 
         const viewChatProfile = ref(false)
+        const isDefault = ref(true)
+
 
         const changeView = () =>{
             viewChatProfile.value = !viewChatProfile.value
         }
 
-        const resetRefs = () => {
+        const changeDefault = (val) => {
+          isDefault.value = val
             
         }
 

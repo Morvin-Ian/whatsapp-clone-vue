@@ -4,6 +4,7 @@ import router from './router'
 import { createApp } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { createPinia } from 'pinia';
 
 import { 
     faChevronDown,
@@ -36,5 +37,6 @@ library.add(
 
 createApp(App)
 .use(router)
+.use(createPinia())
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app')

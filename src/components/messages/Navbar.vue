@@ -3,7 +3,7 @@
         <div class="user-profile">
             <img @click="setChatProfile" :src="profilePicture" alt="profile">
             <div class="name">
-                <span >Evans Nderitu</span> <br>
+                <span >{{ activeChatStore.activeChat.username }}</span> <br>
                 <small class="action">typing ...</small>
             </div>
         </div>
@@ -39,8 +39,10 @@
     import profilePicture from "@/assets/octo.jpg"
     import DropDown from "@/components/dropdowns/MessageNavDropDown.vue"
 
+    import {useActiveChatStore} from "@/stores/activeChat.js"
     import {defineEmits, defineProps} from "vue"
 
+    const activeChatStore = useActiveChatStore();
     const emits = defineEmits(['view-chat-profile', 'view-message-drop'])
 
     const props = defineProps({

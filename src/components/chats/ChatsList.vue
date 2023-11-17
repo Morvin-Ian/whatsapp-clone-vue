@@ -1,28 +1,31 @@
 <template>
     <div class="chat-list">
         <div class="chat" 
-            v-for="chat in chats" 
+            v-for="chat in chatStore.chats" 
             :key="chat.id">
-                <Chat :chat="chat"/>
+                <Chat @click="setActiveChat(chat.id)" :chat="chat"/>
         </div>
     </div>
 </template>
 
 <script setup>
+    import {defineEmits} from "vue"
     import Chat from "@/components/chats/Chat.vue";
-    import {chatList} from "@/apis/chats.js"
-    import {ref, onMounted} from 'vue'
+    import {useChatStore} from "@/stores/chats.js"
+    import {useActiveChatStore} from "@/stores/activeChat.js"
 
-    const chats = ref([]);
+    const chatStore = useChatStore();
+    const activeChatStore = useActiveChatStore();
 
-    onMounted(async () => {
-        try {
-            chats.value = await chatList; 
-        } catch (error) {
-            console.error("Error fetching chats:", error);
-        }
-    });
-  
+    const emits = defineEmits(['change-view'])
+    //fetch chats
+    chatStore.getChats()
+
+    const setActiveChat = (id) =>{
+        activeChatStore.setChat(id)
+        emits('change-view', false)
+    }
+
 
     
 </script>

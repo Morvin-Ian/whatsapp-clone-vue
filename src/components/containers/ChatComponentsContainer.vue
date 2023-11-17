@@ -6,7 +6,7 @@
     />
     <Search/>
     <ChatList 
-        @view-chat-drop="setChatDrop" 
+        @change-view="changeView"
     />
     <Profile 
         :viewProfile="viewProfile" 
@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-    import {ref} from "vue"
+    import {ref, defineEmits} from "vue"
     import Navbar from "@/components/chats/Navbar.vue"
     import Search from "@/components/chats/Search.vue"
     import ChatList from "@/components/chats/ChatsList.vue"
@@ -24,6 +24,8 @@
 
     const viewProfile = ref(false);
     const viewChatDrop = ref(false);
+
+    const emits = defineEmits(['change-view'])
 
       
     const setProfile = (profileState) => {
@@ -34,6 +36,10 @@
     const setChatDrop = (chatDropState) => {
       viewChatDrop.value = chatDropState
     }  
+
+    const changeView = (isDefault) => {
+        emits('change-view', false)
+    }
   
 
 </script>
