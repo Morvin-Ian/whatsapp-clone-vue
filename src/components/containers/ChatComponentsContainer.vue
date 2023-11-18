@@ -22,11 +22,17 @@
     import Profile from "@/components/profiles/UserProfile.vue"
 
 
+    const props = defineProps({
+        resetViews:{
+            required: true,
+            type:Boolean
+        }
+    })
+
     const viewProfile = ref(false);
     const viewChatDrop = ref(false);
 
     const emits = defineEmits(['change-view'])
-
       
     const setProfile = (profileState) => {
       viewProfile.value = profileState
