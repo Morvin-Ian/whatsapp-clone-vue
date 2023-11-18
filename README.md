@@ -1,4 +1,5 @@
 # whatsapp-clone
+[Screencast from 2023-11-18 23-05-54.webm](https://github.com/Morvin-Ian/whatsapp-clone-vue/assets/78966128/112e608a-c32b-477b-a494-7955fce33de0)
 
 ## Project setup
 ```
