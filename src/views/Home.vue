@@ -2,7 +2,6 @@
     <div @click="resetRefs" class="container">
       <div class="chats">
         <ChatsContainer 
-          :resetViews="resetViews"
           @change-view="changeDefault"
         />
       </div>
@@ -10,7 +9,6 @@
       <div :class="viewChatProfile ? 'messages-profile': 'messages'">
         <div v-if="!isDefault">
           <MessagesContainer
-              :resetViews="resetViews"
               @view-chat-profile="changeView"
           />
         </div>
@@ -30,7 +28,6 @@
 
         const viewChatProfile = ref(false)
         const isDefault = ref(true)
-        const resetViews = ref(false)
   
 
         const changeView = () =>{
@@ -39,10 +36,6 @@
 
         const changeDefault = (val) => {
           isDefault.value = val
-        }
-
-        const resetRefs = () =>{
-          resetViews.value = true
         }
 
   </script>

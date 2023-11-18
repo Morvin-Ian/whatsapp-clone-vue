@@ -1,7 +1,7 @@
 <template>
     <div class="chat-list">
         <div class="chat" 
-            v-for="chat in chatStore.chats" 
+            v-for="chat in chatStore.sortedChats" 
             :key="chat.id">
                 <Chat @click="setActiveChat(chat.id)" :chat="chat"/>
         </div>

@@ -57,16 +57,20 @@
 
   "messages": [
     {
-      "sender_id": 2,
-      "receiver_id": 1,
+      "senderId": 2,
+      "receiverId": 1,
       "message": "Just come to the market already",
-      "file":null
+      "file":true,
+      "time":"10:30 AM"
+
     },
     {
-      "sender_id": 1,
-      "receiver_id": 3,
+      "senderId": 1,
+      "receiverId": 3,
       "message": "Good Morning Champ",
-      "file":null
+      "file":null,
+      "time":"9:30 AM"
+
     }
   ]
 }

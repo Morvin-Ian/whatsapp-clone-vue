@@ -36,10 +36,14 @@ export const useChatStore = defineStore("chats", {
     },
 
     getters: {
-        sortedChats(state) {
-        return this.state.chats?.sort(
-            (a, b) => new Date(b.date) - new Date(a.date)
-        );
+        sortedChats() {
+            return this.chats?.sort(
+                (a, b) => new Date(b.date) - new Date(a.date)
+            );
         },
+        getUser(){
+            return this.chats.filter((chat) => chat.id === 1);
+
+        }
     },
 });

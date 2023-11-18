@@ -1,32 +1,16 @@
 <template>
-    <div :class="received ? 'message-container-received' : 'message-container-sent'">
+    <div :class="userId !== message.senderId ? 'message-container-received' : 'message-container-sent'">
         <div class="message">
             <div class="message-body">
-                <div :class="fileExists ? 'file': 'no-file'">
+                <div :class="message.file ? 'file': 'no-file'">
                     <img :src="file" alt="file"/>
                 </div>
 
                 <div class="text">
-                    <span>Good morning champ</span> 
-                    <font-awesome-icon class="icon" :icon="['fas', 'chevron-down']" />
-
-                    <br>
-
-                    <small class="time">2:30 PM</small>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div :class="!received ? 'message-container-received' : 'message-container-sent'">
-        <div class="message">
-            <div class="message-body">
-                <div class="text">
-                    <span>Good morning champ</span> 
+                    <span>{{ message.message }}</span> 
                     <font-awesome-icon class="icon" :icon="['fas', 'chevron-down']" />
                     <br>
-                    <small class="time">2:30 PM</small>
+                    <small class="time">{{ message.time }}</small>
                 </div>
 
             </div>
@@ -36,8 +20,22 @@
 
 <script setup>
     import file from "@/assets/octo.jpg"
-    const received = true;
-    const fileExists = true
+    import {defineProps, computed} from "vue"
+    import {useChatStore} from "@/stores/chats.js"
+
+    const chatStore = useChatStore()
+
+    const props =  defineProps({
+        message:{
+            type:Object,
+            required:true,
+        }
+    }) 
+
+    const userId = computed(()=>{
+        return chatStore.getUser[0].id
+    });
+   
 </script>
 
 <style scoped>
@@ -75,11 +73,10 @@
 
 .file img{
     height: 250px;
-    width: 200px;
+    mn-width: 200px;
     border-radius: 5px;
     object-fit: cover;
     cursor: pointer;
-
 }
 
 .no-file{
@@ -89,7 +86,6 @@
 .text .time{
     float: right;
     color: #b6b6b6;
-
 }
 
 .icon{

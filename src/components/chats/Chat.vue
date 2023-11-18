@@ -26,6 +26,7 @@
 <script setup>
     import profilePicture from "@/assets/octo.jpg"
     import defaultProfile from "@/assets/default.jpg"
+    import {defineProps} from "vue"
 
 
     const props =  defineProps({
